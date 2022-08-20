@@ -2,6 +2,7 @@ import './style.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
+
 // Setup
 
 const scene = new THREE.Scene();
@@ -29,7 +30,7 @@ scene.add(torus);
 
 // Lights
 
-const pointLight = new THREE.PointLight(0xffffff);
+const pointLight = new THREE.PointLight(0x00b7cc );
 pointLight.position.set(5, 5, 5);
 
 const ambientLight = new THREE.AmbientLight(0xffffff);
@@ -65,11 +66,21 @@ scene.background = spaceTexture;
 
 // Avatar
 
-const jeffTexture = new THREE.TextureLoader().load('jeff.png');
+const zylerTexture = new THREE.TextureLoader().load('capital_interest.jpg');
 
-const jeff = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: jeffTexture }));
+const zyler = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: zylerTexture }));
 
-scene.add(jeff);
+const video = document.getElementById( 'cube-1-background-video' );
+
+const cube1Texture = new THREE.VideoTexture( video );
+
+const cube1 = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: cube1Texture }));
+const cube2 = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: cube1Texture }));
+
+scene.add(cube1);
+scene.add(cube2);
+scene.add(zyler)
+
 
 // Moon
 
@@ -89,8 +100,14 @@ scene.add(moon);
 moon.position.z = 30;
 moon.position.setX(-10);
 
-jeff.position.z = -5;
-jeff.position.x = 2;
+cube1.position.z = 4;
+cube1.position.x = 2;
+
+cube2.position.z = 18;
+cube2.position.x = 3;
+
+zyler.position.z = 40;
+zyler.position.x = -6;
 
 // Scroll Animation
 
@@ -100,8 +117,14 @@ function moveCamera() {
   moon.rotation.y += 0.075;
   moon.rotation.z += 0.05;
 
-  jeff.rotation.y += 0.01;
-  jeff.rotation.z += 0.01;
+  cube1.rotation.y += 0.01;
+  cube1.rotation.z += 0.01;
+
+  cube2.rotation.y -= 0.01;
+  cube2.rotation.z -= 0.01;
+
+  moon.rotation.x += 0.05;
+  zyler.rotation.y -= 0.01;
 
   camera.position.z = t * -0.01;
   camera.position.x = t * -0.0002;
@@ -128,3 +151,14 @@ function animate() {
 }
 
 animate();
+
+video.oncanplay = function() {
+
+  setTimeout(() => {
+    video.play()
+
+  }, 500)
+
+
+};
+
