@@ -8,53 +8,36 @@
 
 <p align="center"><em>"We are going to space and we are bringing a disco."</em> 🚀🪩</p>
 
-> **Status:** Dormant since Aug 20, 2022. · **Visibility:** public · **Language:** JavaScript · **History:** 2021-05-21 → 2022-08-20, 2 commits
+> **Status:** Live at [spacedisco.com](https://spacedisco.com) since 2026-11-19. · **Language:** JavaScript
 
 ## 🪩 What this is
 
-Fireship's scrollable Three.js demo customized for Space Disco: rotating disco balls behind the mission copy ("We are going to space and we are bringing a disco"), crew members, events, and resident DJ ZYLER, with a 2020 event highlight video.
+The landing page for Space Disco, Steven's house music party brand: the mission, how boarding works (text-in invitations, QR boarding passes, crew ranks, secret doors), a flight log from 2019 to now, resident DJ ZYLER, and a boarding pass request form. The backdrop is footage from the 2020 dome night, with a Three.js star field and mirror ball.
+
+The 2022 Fireship-style page is kept in `legacy/2022/` for history; it is not built or deployed.
 
 ## 🎛️ Stack
 
-- Vite
-- three.js
-- gsap
-- Typekit fonts (brandon-grotesque, elevon)
-
-## 🗺️ Layout
-
-| Path | What it does |
-| --- | --- |
-| `index.html` | copy and sections |
-| `main.js` | scene, scroll animation |
-| `src/disco_balls.js, mirror_balls.js, mirror-balls.html` | mirror-ball experiments |
-| `style.css` | dark panels over the canvas |
-| `space_disco_2020_highlight_1080p.mp4` | 50 MB highlight video committed to git |
-| `favicon.svg` | site icon |
+- Vite 6, plain JavaScript, Three.js (lazy-loaded)
+- One Vercel function, `api/board.js`, which stores boarding requests in the shared Supabase (`public.spacedisco_boarding_requests`, service role only)
+- Fonts: Unbounded and Space Grotesk (Google Fonts)
 
 ## 🚀 Launch sequence (local setup)
 
 ```bash
-npm install
-npm run dev
+npm ci
+npm test
+npm run dev     # the form needs the API; on Vercel it is /api/board
 npm run build   # outputs dist/
 ```
 
 ## 🛸 Deploy
 
-Static Vite build; no deploy config in the repo. The live spacedisco.com today serves a different site.
-
-## 🔌 Integrations
-
-Typekit, SoundCloud link to soundcloud.com/zylerdj.
+Vercel project `spacedisco.com` (team stevenzeiler), domains spacedisco.com and www.spacedisco.com. Env vars `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are set there. Deploy with `vercel build --prod && vercel deploy --prebuilt --prod`.
 
 ## 🧪 Tests & CI
 
-None.
-
-## 🛰️ Current state
-
-Dormant since Aug 20, 2022. The live spacedisco.com is not built from this repo.
+`npm test` (node:test): request validation, pass numbers, the API handler with a fake database, page content, a no-phone-numbers check on published files, media size. CI runs tests, build, gitleaks on new commits and a PR title check.
 
 ## 🌌 How it connects
 

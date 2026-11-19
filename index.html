@@ -1,103 +1,211 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Space Disco</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Space Disco · Orbital Lounge and House Music Club</title>
+    <meta name="description" content="Space Disco is a house music party that has been heading for orbit since 2019. Text-in invitations, boarding passes, secret doors and a crew that ranks up every time they dance. Request your boarding pass." />
+    <meta name="theme-color" content="#07060d" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/media/icon-180.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://spacedisco.com/" />
+    <meta property="og:title" content="Space Disco · We are going to space and we are bringing a disco" />
+    <meta property="og:description" content="An orbital lounge and house music club. Request your boarding pass for the next flight." />
+    <meta property="og:image" content="https://spacedisco.com/media/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <canvas id="sky" aria-hidden="true"></canvas>
 
-    <canvas id="bg"></canvas>
-    <video id="cube-1-background-video" src="/space_disco_2020_highlight_1080p.mp4" autoplay="true" muted></video>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Space Disco, back to top">
+        <img src="/favicon.svg" alt="" width="32" height="32" />
+        <span>Space Disco</span>
+      </a>
+      <nav aria-label="Sections">
+        <a href="#mission">Mission</a>
+        <a href="#boarding">Boarding</a>
+        <a href="#log">Flight log</a>
+        <a href="#zyler">ZYLER</a>
+        <a class="pill" href="#pass">Get a pass</a>
+      </nav>
+    </header>
 
-    <main>
-
-      <header>
-        <h1>Space Disco</h1>
-        <p>🚀 Orbital Lounge and House Music Club</p>
-      </header>
-
-
-      <blockquote>
-        <p>"We are going to space and we are bringing a disco"</p>
-      </blockquote>
-
-      <section>
-        <h2>📜 Mission</h2>
-        <p>
-          Discover all the dancers in the world who dream of going to outer space, and have as much fun as possible in pursuit of that dream together.
-        </p>
-
-        <p>
-          Host a long-standing series of space-related musical dance events, in higher and higher altitute including on mountains, in helicopters, airplanes, zeppelins, etc.
-        </p>
-
-        <p>
-          Build a music lounge and and club hotel in orbit with collaboration from the likes of Blue Origin, and bring along for very low cost all those who helped build the brand over the coming decade(s).
-        </p>
-
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="hero-title">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="/media/dome-poster.jpg" aria-hidden="true">
+          <source src="/media/dome-loop-640.mp4" type="video/mp4" media="(max-width: 720px)" />
+          <source src="/media/dome-loop.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <p class="kicker">Orbital Lounge &amp; House Music Club · since 2019</p>
+          <h1 id="hero-title" class="sr-only">Space Disco</h1>
+          <img class="hero-logo" src="/media/space-disco-logo.webp" alt="Space Disco: a mirror-ball saucer with two astronauts" width="900" height="789" fetchpriority="high" />
+          <p class="tagline">We are going to space<br />and we are bringing a disco.</p>
+          <div class="cta-row">
+            <a class="btn btn-glow" href="#pass">Request a boarding pass</a>
+            <a class="btn btn-ghost" href="#log">Read the flight log</a>
+          </div>
+        </div>
+        <a class="scroll-cue" href="#mission" aria-label="Scroll to the mission"><span></span></a>
       </section>
 
-      <section class="light">
-        <h2>👩🏽‍🚀 Crew Members</h2>
-
-        <p>
-          Upgrade your boarding pass by participating in events. Hundreds of potential crew members are already moving up the ranks.
-        </p>
-
-        <h2>🏆 Events</h2>
-
-        <p>
-          Exclusive musical dance experiences only for crew members.
-        </p>
-
+      <!-- Mission -->
+      <section id="mission" class="band" aria-labelledby="mission-title">
+        <div class="wrap">
+          <p class="eyebrow">01 · The mission</p>
+          <h2 id="mission-title">Find every dancer who dreams of outer space, and have as much fun as possible getting there together.</h2>
+          <div class="altitudes">
+            <article class="alt reveal">
+              <p class="alt-height">0 m</p>
+              <h3>Ground control</h3>
+              <p>Club nights behind unmarked doors. A geodesic dome full of light. Deep, groovy, funky house played for the floor, not the flyer.</p>
+            </article>
+            <article class="alt reveal">
+              <p class="alt-height">3,000 m</p>
+              <h3>Higher and higher</h3>
+              <p>A long-running series of space-themed dance flights at rising altitudes: mountaintops, then helicopters, airplanes and zeppelins.</p>
+            </article>
+            <article class="alt reveal">
+              <p class="alt-height">400 km</p>
+              <h3>Orbit</h3>
+              <p>A music lounge in orbit. Everyone who helped build Space Disco along the way gets a seat on the flight.</p>
+            </article>
+          </div>
+        </div>
       </section>
 
-      <blockquote>
-        <p>"I Came Here To Dance" - Albert Einstein</p>
-      </blockquote>
-
-      <section class="left">
-        <h2>Resident DJs</h2>
-
-        <h3>ZYLER</h3>
-        <p>
-          Electro. Nu-Disco. Funk. House. ZYLER has performed live in the USA, Argentina, Spain, Andorra, Croatia, and upcoming Monaco.
-
-          Vibe along with him with regular hour long mixes published to his Soundcloud
-        </p>
-        <p>
-
-          <a href="https://soundcloud.com/zylerdj">https://soundcloud.com/zylerdj</a>
-        </p>
-
+      <!-- Dome film strip -->
+      <section class="film" aria-label="Photos from the 2020 Space Disco dome">
+        <div class="film-track">
+          <img src="/media/dome-6.jpg" alt="Red and blue beams over a crowd inside the dome" loading="lazy" width="900" height="506" />
+          <img src="/media/dome-30.jpg" alt="Mirror balls throwing light across the dome's frame" loading="lazy" width="900" height="506" />
+          <img src="/media/dome-48.jpg" alt="Dancers under a violet spotlight" loading="lazy" width="900" height="506" />
+          <img src="/media/dome-60.jpg" alt="The geodesic dome glowing from inside" loading="lazy" width="900" height="506" />
+          <img src="/media/dome-75.jpg" alt="The crowd in silhouette under blue light" loading="lazy" width="900" height="506" />
+        </div>
+        <p class="film-caption">From the 2020 highlight reel: a geodesic dome, a dome full of crew, mirror balls everywhere.</p>
       </section>
 
-      <blockquote>
-        <p>Pre-Boarding Soon for Flight SD-0004</p>
-      </blockquote>
+      <!-- Boarding -->
+      <section id="boarding" class="band" aria-labelledby="boarding-title">
+        <div class="wrap">
+          <p class="eyebrow">02 · How boarding works</p>
+          <h2 id="boarding-title">Space Disco is a party you play your way into.</h2>
+          <ol class="steps">
+            <li class="step reveal">
+              <span class="step-n">T-4</span>
+              <h3>Send the signal</h3>
+              <p>It started in 2019 with a text: send the word <em>disco</em>, get an invitation back. Today you request a pass right here.</p>
+            </li>
+            <li class="step reveal">
+              <span class="step-n">T-3</span>
+              <h3>Get your boarding pass</h3>
+              <p>Every guest gets a pass with a QR code and a flight number. You show it at the gate, and it gets scanned on the way in.</p>
+            </li>
+            <li class="step reveal">
+              <span class="step-n">T-2</span>
+              <h3>Join the crew</h3>
+              <p>Show up, dance, bring good people. Each flight moves you up the ranks, from cadet to crew to premier class.</p>
+            </li>
+            <li class="step reveal">
+              <span class="step-n">T-1</span>
+              <h3>Find the secret door</h3>
+              <p>The location arrives close to launch. Sometimes it's a back door with a code. Sometimes it's a dome in a field.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
 
+      <!-- Flight log -->
+      <section id="log" class="band band-deep" aria-labelledby="log-title">
+        <div class="wrap">
+          <p class="eyebrow">03 · Flight log</p>
+          <h2 id="log-title">Seven years of liftoff.</h2>
+          <ol class="timeline">
+            <li class="reveal"><time>2019</time><div><h3>Text disco</h3><p>The first Space Disco bot answers a text with an invitation and a QR code. Crew members are born.</p></div></li>
+            <li class="reveal"><time>2020</time><div><h3>The saucer lands</h3><p>The mirror-ball saucer and its two astronauts become the logo. The dome night fills up with light, and boarding passes start arriving by picture message.</p></div></li>
+            <li class="reveal"><time>2021</time><div><h3>Secret door nights</h3><p>Club nights in downtown Portsmouth, New Hampshire. Multiple DJs, a back-door entrance and a door code sent the day of. "Get ready to laugh and dance."</p></div></li>
+            <li class="reveal"><time>2022</time><div><h3>Mirror balls in the browser</h3><p>spacedisco.com becomes a scrolling 3D field of disco balls, and pre-boarding opens for flight SD-0004.</p></div></li>
+            <li class="reveal"><time>2023</time><div><h3>The music library</h3><p>A studio, a command line and a track scanner, so every set has a record of what moved the floor.</p></div></li>
+            <li class="reveal"><time>2026</time><div><h3>NoCap on the Seacoast</h3><p>A house music night in Stratham, New Hampshire. Invite only, vetted list, 87 tickets, a QR at the door.</p></div></li>
+            <li class="reveal now"><time>Now</time><div><h3>Countdown to the next flight</h3><p>Space Disco is back. New site, new passes, the same promise.</p></div></li>
+          </ol>
+        </div>
+      </section>
 
+      <!-- ZYLER -->
+      <section id="zyler" class="band" aria-labelledby="zyler-title">
+        <div class="wrap zyler">
+          <div class="zyler-copy">
+            <p class="eyebrow">04 · Resident DJ</p>
+            <h2 id="zyler-title" class="zyler-name">ZYLER</h2>
+            <p class="genres">Electro · Nu-disco · Funk · House</p>
+            <p>Deep, minimal and tech house, soulful and groovy disco house. ZYLER has played the USA, Argentina, Spain, Andorra and Croatia, and keeps the floor in orbit with hour-long mixes between flights.</p>
+            <div class="cta-row">
+              <a class="btn btn-ghost" href="https://soundcloud.com/zylerdj" rel="noopener" target="_blank">Mixes on SoundCloud</a>
+              <a class="btn btn-ghost" href="https://zylr.com" rel="noopener" target="_blank">zylr.com</a>
+            </div>
+          </div>
+          <blockquote class="quote reveal">
+            <p>"I came here to dance."</p>
+            <footer>The unofficial crew motto, misattributed to Albert Einstein since 2022</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- Boarding pass form -->
+      <section id="pass" class="band band-pass" aria-labelledby="pass-title">
+        <div class="wrap pass-wrap">
+          <div class="pass-intro">
+            <p class="eyebrow">05 · Next flight</p>
+            <h2 id="pass-title">Pre-boarding is open.</h2>
+            <p>Tell us who you are and what you bring to the floor. We read every request. When the next flight is set, you'll get the date first, and the door last.</p>
+            <p class="fine">We only use this to invite you. No list sharing, no spam, and you can ask us to forget you anytime.</p>
+          </div>
+
+          <form id="pass-form" class="pass-form" novalidate>
+            <label>Name <input name="name" autocomplete="name" required maxlength="80" /></label>
+            <label>Email <input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
+            <label><span>City <span class="opt">(optional)</span></span> <input name="city" autocomplete="address-level2" maxlength="80" /></label>
+            <label><span>What do you bring to the dance floor? <span class="opt">(optional)</span></span>
+              <textarea name="note" rows="3" maxlength="280" placeholder="Moves, a friend, a glitter jacket, a mix…"></textarea>
+            </label>
+            <label class="hp" aria-hidden="true">Leave this empty <input name="website" tabindex="-1" autocomplete="off" /></label>
+            <button class="btn btn-glow" type="submit">Request my boarding pass</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <div id="ticket" class="ticket" hidden>
+            <div class="ticket-top">
+              <span>Space Disco</span><span>Boarding pass</span>
+            </div>
+            <div class="ticket-body">
+              <div><p class="t-label">Passenger</p><p class="t-value" data-t="name"></p></div>
+              <div><p class="t-label">Pass</p><p class="t-value" data-t="pass"></p></div>
+              <div><p class="t-label">Flight</p><p class="t-value">SD-0005</p></div>
+              <div><p class="t-label">Rank</p><p class="t-value" data-t="rank"></p></div>
+              <div><p class="t-label">Gate</p><p class="t-value">Secret</p></div>
+              <div><p class="t-label">Boards</p><p class="t-value">Date soon</p></div>
+            </div>
+            <p class="ticket-foot">You're on the manifest. Watch your inbox for the countdown.</p>
+          </div>
+        </div>
+      </section>
     </main>
-    
-    <script type="module" src="/main.js"></script>
 
+    <footer class="site-foot">
+      <img src="/favicon.svg" alt="" width="48" height="48" />
+      <p>We are going to space and we are bringing a disco.</p>
+      <p class="fine">Space Disco · Orbital Lounge and House Music Club · <a href="https://github.com/spacedisco" rel="noopener" target="_blank">Built in the open</a></p>
+    </footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
