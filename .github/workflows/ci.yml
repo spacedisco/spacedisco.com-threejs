@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   check:
-    name: Install, build
+    name: Install, test, build
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -27,6 +27,7 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      - run: npm test
       - run: npm run build
 
   secrets:
